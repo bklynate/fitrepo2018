@@ -1,8 +1,14 @@
 // Colors
 
-// sizing
+// Sizing
 $small-sized: 1.2rem;
 $medium-sized: 1.9rem;
-$large-sized: 3.2rem;
-$xlarge-sized: 4.8rem;
+$large-sized: 2.4rem;
+$xlarge-sized: 3.2rem;
+$xxlarge-sized: 4.8rem;
 $desktop_breakpoint: 45rem;
+
+// Text Align
+.text-center {
+  text-align: center;
+}
