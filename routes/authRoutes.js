@@ -12,7 +12,7 @@ const authRoutes = app => {
     '/auth/google/callback',
     passport.authenticate('google'),
     (request, response) => {
-      response.redirect('/searchAnime');
+      response.redirect('/');
     }
   );
 
