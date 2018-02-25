@@ -5,12 +5,11 @@ import mongoose from 'mongoose';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
 import keys from './config/keys';
+import authRoutes from './routes/authRoutes';
 
 const { PORT, MONGODB_URI, NODE_ENV } = process.env;
 
 const app = express();
-
-const authRoutes = require('./routes/authRoutes');
 
 const mongoUrl = MONGODB_URI || 'mongodb://localhost/macrofit_db';
 

@@ -1,8 +1,10 @@
+import prodKeys from './prod';
+import devKeys from './dev';
+
 // Keys.js
-if (process.env.NODE_ENV === "production") {
-  // if the environment is production, load prod keys
-  module.exports = require("./prod");
-} else {
-  // if the environment is development, load dev keys
-  module.exports = require("./dev");
-}
+const { NODE_ENV } = process.env;
+
+// if the environment is production, load prod keys
+if (NODE_ENV === "production") prodKeys; // eslint-disable-line
+
+export default devKeys;

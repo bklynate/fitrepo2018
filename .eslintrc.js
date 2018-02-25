@@ -15,6 +15,7 @@ module.exports = {
     'react/jsx-uses-vars': 2,
     'no-underscore-dangle': 'off',
     'import/no-named-as-default': 'off',
-    'jsx-a11y/no-autofocus': 'off'
+    'jsx-a11y/no-autofocus': 'off',
+    'consistent-return': 0
   },
 };
