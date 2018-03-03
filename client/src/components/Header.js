@@ -9,9 +9,30 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return <a href="/auth/google">Log in with Google</a>;
+        return (
+          <div>
+            <ul className="right hide-on-med-and-down">
+              <li><a href="/auth/google">Log in with Google</a></li>
+            </ul>
+            <ul className="side-nav" id="mobile-demo">
+              <li><a href="/auth/google">Log in with Google</a></li>
+            </ul>
+          </div>
+        )
       default:
-        return <a href="/api/logout">Logout</a>;
+        return(
+          <div>
+            <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+            <ul className="right hide-on-med-and-down">
+              <li><a href="/api/logout">Logout</a></li>
+              <li><Link to="/macroTracker">Track Your Macros</Link></li>
+            </ul>
+            <ul className="side-nav" id="mobile-demo">
+              <li><a href="/api/logout">Logout</a></li>
+              <li><Link to="/macroTracker">Track Your Macros</Link></li>
+            </ul>
+          </div>
+        );
     }
   }
   render() {
@@ -23,9 +44,7 @@ class Header extends Component {
             className="left brand-logo">
             MacroTracker
           </Link>
-          <ul className="right header-right">
-            <li className="header-right-content">{this.renderContent()}</li>
-          </ul>
+          {this.renderContent()}
         </div>
       </nav>
     );

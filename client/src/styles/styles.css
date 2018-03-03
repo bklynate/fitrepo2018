@@ -20,8 +20,8 @@ button:disabled {
 .header-right {
   margin-right: 5%; }
 
-.header-right > li > a {
-  font-size: 1.9rem; }
+.right > li > a {
+  font-size: 1.5rem; }
 
 .page-footer {
   padding-top: 0px; }
