@@ -11,6 +11,7 @@ class Header extends Component {
       case false:
         return (
           <div>
+            <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
               <li><a href="/auth/google">Log in with Google</a></li>
             </ul>
@@ -41,7 +42,7 @@ class Header extends Component {
         <div className="header nav-wrapper">
           <Link
             to={this.props.auth ? '/' : '/'}
-            className="left brand-logo">
+            className="brand-logo">
             MacroTracker
           </Link>
           {this.renderContent()}

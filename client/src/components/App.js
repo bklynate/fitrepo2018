@@ -7,10 +7,10 @@ import Header from './Header';
 import Footer from './Footer';
 import LandingPage from './LandingPage';
 import PrivateRoute from './PrivateRoute';
+import MacroTracker from './MacroTracker';
 
 
 const NotFound404 = () => <h2>PAGE NOT FOUND</h2>;
-const MacroTracker = () => <h1>MACROTRACKER</h1>;
 
 class App extends Component {
   componentDidMount() {

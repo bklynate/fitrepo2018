@@ -6,13 +6,36 @@ html {
 
 body {
   font-family: 'Slabo 27px', serif;
-  font-size: 1.9rem; }
+  font-size: 1.9rem;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
 
 button {
   cursor: pointer; }
 
 button:disabled {
   cursor: default; }
+
+.counterAndFormArea {
+  margin-bottom: 18rem; }
+
+.counter {
+  height: 30rem;
+  margin-top: 8rem;
+  padding-top: 10rem; }
+
+.counterPercentage,
+.counterMacroTitle {
+  text-align: center; }
+
+.counter-text {
+  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 300; }
 
 .brand-logo {
   margin-left: 5%; }

@@ -39,6 +39,6 @@ if (NODE_ENV === 'production') {
   });
 }
 
-app.listen((PORT || 5000), () => {
+app.listen((PORT || 8080), () => {
   console.log('They came for us....out of the darkness..'); // eslint-disable-line
 });
