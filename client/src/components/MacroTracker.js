@@ -4,8 +4,6 @@ import Counter from './Counter';
 import AddMacroForm from './AddMacroForm';
 import DeductMacroForm from './DeductMacroForm';
 
-const count = `${40}%`;
-
 class MacroTracker extends Component {
   state = {
     proteinCount: 0,
