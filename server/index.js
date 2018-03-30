@@ -4,9 +4,9 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
-import keys from './config/keys';
-import authRoutes from './routes/authRoutes';
-import macroRoutes from './routes/macroRoutes';
+import keys from '../config/keys';
+import authRoutes from '../routes/authRoutes';
+import macroRoutes from '../routes/macroRoutes';
 
 const { PORT, MONGODB_URI, NODE_ENV } = process.env;
 
@@ -14,8 +14,8 @@ const app = express();
 
 const mongoUrl = MONGODB_URI || 'mongodb://localhost/macrofit_db';
 
-require('./models/User');
-require('./services/passport');
+require('../models/User');
+require('../services/passport');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

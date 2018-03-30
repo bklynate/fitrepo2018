@@ -10,10 +10,10 @@
   "scripts": {
     "start": "npm run build && node ./build/index.js",
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build index.js -s",
+    "build-babel": "babel -d ./build server/index.js -s",
     "build": "npm run clean && npm run build-babel",
     "lint": "eslint . --fix",
-    "server": "nodemon --exec babel-node index.js",
+    "server": "nodemon --exec babel-node ./server/index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
