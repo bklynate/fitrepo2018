@@ -1,5 +1,5 @@
-import prodKeys from './prod';
-import devKeys from './dev';
+const prodKeys = require('./prod');
+const devKeys = require('./dev');
 
 // Keys.js
 const { NODE_ENV } = process.env;
