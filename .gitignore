@@ -1,2 +1,4 @@
 node_modules
 config/dev.js
+build/dev.js
+build/dev.js.map
