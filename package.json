@@ -9,7 +9,7 @@
   },
   "scripts": {
     "lint": "eslint . --fix",
-    "start": "node index.js",
+    "start": "babel-node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",

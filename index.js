@@ -1,7 +1,3 @@
-require('babel-register')({
-  "presets": ["es2015"]
-});
-
 import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
