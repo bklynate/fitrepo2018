@@ -1,6 +1,6 @@
-import passport from 'passport';
+const passport = require('passport');
 
-const authRoutes = app => {
+module.exports = app => {
   app.get(
     '/auth/google',
     passport.authenticate('google', {
@@ -25,5 +25,3 @@ const authRoutes = app => {
     response.send(request.user);
   });
 };
-
-export default authRoutes;

@@ -1,12 +1,12 @@
-import path from 'path';
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cookieSession from 'cookie-session';
-import passport from 'passport';
-import keys from '../config/keys';
-import authRoutes from '../routes/authRoutes';
-import macroRoutes from '../routes/macroRoutes';
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const keys = require('./config/keys');
+const authRoutes = require('./routes/authRoutes');
+const macroRoutes = require('./routes/macroRoutes');
 
 const { PORT, MONGODB_URI, NODE_ENV } = process.env;
 
@@ -14,8 +14,8 @@ const app = express();
 
 const mongoUrl = MONGODB_URI || 'mongodb://localhost/macrofit_db';
 
-require('../models/User');
-require('../services/passport');
+require('./models/User');
+require('./services/passport');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

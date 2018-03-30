@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const macroRoutes = app => {
+module.exports = app => {
   const User = mongoose.model('users');
 
   function buildDeductMacroObj({ macroType, macroAmount }) {
@@ -45,5 +45,3 @@ const macroRoutes = app => {
     response.send(user);
   });
 };
-
-export default macroRoutes;
