@@ -9,10 +9,7 @@
   },
   "scripts": {
     "lint": "eslint . --fix",
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build -s",
-    "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js",
+    "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
