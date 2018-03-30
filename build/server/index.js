@@ -24,15 +24,15 @@ var _passport = require('passport');
 
 var _passport2 = _interopRequireDefault(_passport);
 
-var _keys = require('./config/keys');
+var _keys = require('../config/keys');
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _authRoutes = require('./routes/authRoutes');
+var _authRoutes = require('../routes/authRoutes');
 
 var _authRoutes2 = _interopRequireDefault(_authRoutes);
 
-var _macroRoutes = require('./routes/macroRoutes');
+var _macroRoutes = require('../routes/macroRoutes');
 
 var _macroRoutes2 = _interopRequireDefault(_macroRoutes);
 
@@ -48,8 +48,8 @@ var app = (0, _express2.default)();
 
 var mongoUrl = MONGODB_URI || 'mongodb://localhost/macrofit_db';
 
-require('./models/User');
-require('./services/passport');
+require('../models/User');
+require('../services/passport');
 
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
