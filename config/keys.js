@@ -8,4 +8,6 @@ const { NODE_ENV } = process.env;
 
 if (NODE_ENV === "production") prodKeys; // eslint-disable-line
 
-export default devKeys;
+modules.export = {
+  devKeys
+};
