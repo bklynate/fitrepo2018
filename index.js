@@ -6,6 +6,7 @@ import cookieSession from 'cookie-session';
 import passport from 'passport';
 import keys from './config/keys';
 import authRoutes from './routes/authRoutes';
+import macroRoutes from './routes/macroRoutes';
 
 const { PORT, MONGODB_URI, NODE_ENV } = process.env;
 
@@ -24,8 +25,12 @@ app.use(cookieSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+mongoose.Promise = global.Promise;
 mongoose.connect(mongoUrl);
+
 authRoutes(app);
+macroRoutes(app);
 
 if (NODE_ENV === 'production') {
   // Express serves up production build assets
@@ -39,6 +44,6 @@ if (NODE_ENV === 'production') {
   });
 }
 
-app.listen((PORT || 8080), () => {
+app.listen((PORT || 5000), () => {
   console.log('They came for us....out of the darkness..'); // eslint-disable-line
 });

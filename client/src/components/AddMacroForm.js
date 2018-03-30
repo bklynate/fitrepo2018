@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addMacro } from '../actions';
 
 class AddMacroForm extends Component {
   onFormSubmit = e => {
     e.preventDefault();
 
     const macrograms = this.refs.macrograms.value;
-
+    const { macroType } = this.props;
     if (macrograms.match(/^[0-9]*$/) && macrograms !== '') {
       this.refs.macrograms.value = '';
-      this.props.onMacroAdd(parseInt(macrograms, 10), this.props.macroType);
+      const macroAmount = { macroAmount: parseInt(macrograms, 10) };
+      this.props.addMacro({ macroAmount, macroType });
     }
   };
 
@@ -28,4 +31,4 @@ class AddMacroForm extends Component {
   }
 }
 
-export default AddMacroForm;
+export default connect(null, { addMacro })(AddMacroForm);

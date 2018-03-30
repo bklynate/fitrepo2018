@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deductMacro } from '../actions';
 
 class DeductMacroForm extends Component {
   onFormSubmit = e => {
     e.preventDefault();
 
     const macrograms = this.refs.macrograms.value;
-
+    const { macroType } = this.props;
     if (macrograms.match(/^[0-9]*$/) && macrograms !== '') {
       this.refs.macrograms.value = '';
-      this.props.onMacroDeduct(parseInt(macrograms, 10), this.props.macroType);
+      const macroAmount = {macroAmount: parseInt(macrograms, 10)};
+      this.props.deductMacro({ macroAmount, macroType });
     }
   };
 
@@ -30,4 +33,4 @@ class DeductMacroForm extends Component {
   }
 }
 
-export default DeductMacroForm;
+export default connect(null, { deductMacro })(DeductMacroForm);

@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchMacros } from '../actions';
 
 import Counter from './Counter';
 import AddMacroForm from './AddMacroForm';
 import DeductMacroForm from './DeductMacroForm';
 
 class MacroTracker extends Component {
-  state = {
-    proteinCount: 0,
-    isThereProtein: false,
-    fatCount: 0,
-    isThereFat: false,
-    carbCount: 0,
-    isThereCarbs: false,
-  };
+
+  componentDidMount() {
+    this.props.fetchMacros();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.macros.carbCount === this.props.macros.carbCount) return;
+    if (prevProps.macros.fatCount === this.props.macros.fatCount) return;
+    if (prevProps.macros.proteinCount === this.props.macros.proteinCount) return;
+    this.props.fetchMacros();
+  }
 
   handleOnMacroAdd = (amount, macroType) => {
     switch (macroType) {
@@ -31,15 +36,15 @@ class MacroTracker extends Component {
     switch (macroType) {
       case 'protein':
         return this.setState(() => ({
-          proteinCount: this.state.proteinCount - amount,
+          proteinCount: this.props.macros.proteinCount - amount,
         }));
       case 'carb':
         return this.setState(() => ({
-          carbCount: this.state.carbCount - amount,
+          carbCount: this.props.macros.carbCount - amount,
         }));
       case 'fat':
         return this.setState(() => ({
-          fatCount: this.state.fatCount - amount,
+          fatCount: this.props.macros.fatCount - amount,
         }));
       default:
         return 0;
@@ -53,9 +58,9 @@ class MacroTracker extends Component {
           <div>
             <Counter
               macroTitle={'Protein'}
-              macroCount={this.state.proteinCount}
+              macroCount={this.props.macros.proteinCount}
             />
-            {this.state.proteinCount <= 0 ? (
+            {this.props.macros.proteinCount <= 0 ? (
               <AddMacroForm
                 onMacroAdd={this.handleOnMacroAdd}
                 macroType={'protein'}
@@ -71,8 +76,8 @@ class MacroTracker extends Component {
       case 'carb':
         return (
           <div>
-            <Counter macroTitle={'Carb'} macroCount={this.state.carbCount} />
-            {this.state.carbCount <= 0 ? (
+            <Counter macroTitle={'Carb'} macroCount={this.props.macros.carbCount} />
+            {this.props.macros.carbCount <= 0 ? (
               <AddMacroForm
                 onMacroAdd={this.handleOnMacroAdd}
                 macroType={'carb'}
@@ -88,8 +93,8 @@ class MacroTracker extends Component {
       case 'fat':
         return (
           <div>
-            <Counter macroTitle={'Fat'} macroCount={this.state.fatCount} />
-            {this.state.fatCount <= 0 ? (
+            <Counter macroTitle={'Fat'} macroCount={this.props.macros.fatCount} />
+            {this.props.macros.fatCount <= 0 ? (
               <AddMacroForm
                 onMacroAdd={this.handleOnMacroAdd}
                 macroType={'fat'}
@@ -132,4 +137,8 @@ class MacroTracker extends Component {
   }
 }
 
-export default MacroTracker;
+const mapStateToProps = ({ macros = {} }) => ({
+  macros,
+});
+
+export default connect(mapStateToProps, { fetchMacros })(MacroTracker);
