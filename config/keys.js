@@ -1,10 +1,8 @@
-const prodKeys = require('./prod');
-const devKeys = require('./dev');
-
-// Keys.js
-const { NODE_ENV } = process.env;
-
-// if the environment is production, load prod keys
-if (NODE_ENV === "production") module.exports = prodKeys; // eslint-disable-line
-
-module.exports = devKeys;
+// keys.js - figure out what set of credentials to return
+if (process.env.NODE_ENV === 'production') {
+  // we are in production - return the prod set of keys
+  module.exports = require('./prod'); // eslint-disable-line
+} else {
+  // we are in development - return the dev keys!!!
+  module.exports = require('./dev'); // eslint-disable-line
+}
