@@ -81,3 +81,4 @@ if (NODE_ENV === 'production') {
 app.listen(PORT || 5000, function () {
   console.log('They came for us....out of the darkness..'); // eslint-disable-line
 });
+//# sourceMappingURL=index.js.map
