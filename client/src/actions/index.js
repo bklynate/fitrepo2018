@@ -4,6 +4,7 @@ import { FETCH_USER, FETCH_MACROS, DEDUCT_MACRO, ADD_MACRO } from './types';
 export const fetchUser = () => async dispatch => {
   const response = await axios.get('/api/current_user');
   dispatch({ type: FETCH_USER, payload: response.data });
+  return response.data;
 };
 
 export const deductMacro = ({ macroAmount, macroType }) => async dispatch => {

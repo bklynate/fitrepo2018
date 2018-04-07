@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
   googleID: String,
+  displayName: String,
   macros: {
     proteinCount: { type: Number, default: 0 },
     carbCount: { type: Number, default: 0 },

@@ -9,12 +9,20 @@ import LandingPage from './LandingPage';
 import PrivateRoute from './PrivateRoute';
 import MacroTracker from './MacroTracker';
 
-
 const NotFound404 = () => <h2>PAGE NOT FOUND</h2>;
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
+  state = {
+    user: {},
+  };
+
+  async componentDidMount() {
+    const user = await this.props.fetchUser();
+    console.log(user)
+    return this.setState(() => ({
+      user
+    }));
+
   }
 
   render() {
@@ -26,7 +34,12 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={LandingPage} />
-                <PrivateRoute exact path="/macroTracker" component={MacroTracker} />
+                <PrivateRoute
+                  exact
+                  path="/macroTracker"
+                  component={MacroTracker}
+                  user={this.state.user}
+                />
                 <Route exact path="*" component={NotFound404} />
               </Switch>
             </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMacros } from '../actions';
+import { fetchMacros, fetchUser } from '../actions';
 
 import Counter from './Counter';
 import AddMacroForm from './AddMacroForm';
@@ -113,8 +113,12 @@ class MacroTracker extends Component {
   };
 
   render() {
+    const { user: { displayName } } = this.props
     return (
       <div className="macroTrackerDiv">
+        <div>
+          <p>Hi, { displayName }!</p>
+        </div>
         <div className="row">
           <div className="col s12 m4">
             <div className="counterAndFormArea">
@@ -141,4 +145,4 @@ const mapStateToProps = ({ macros = {} }) => ({
   macros,
 });
 
-export default connect(mapStateToProps, { fetchMacros })(MacroTracker);
+export default connect(mapStateToProps, { fetchMacros, fetchUser })(MacroTracker);

@@ -25,7 +25,7 @@ button:disabled {
 
 .counter {
   height: 30rem;
-  margin-top: 8rem;
+  margin-top: -5rem;
   padding-top: 10rem; }
 
 .counterPercentage,
