@@ -7,7 +7,6 @@ import AddMacroForm from './AddMacroForm';
 import DeductMacroForm from './DeductMacroForm';
 
 class MacroTracker extends Component {
-
   componentDidMount() {
     this.props.fetchMacros();
   }
@@ -76,7 +75,10 @@ class MacroTracker extends Component {
       case 'carb':
         return (
           <div>
-            <Counter macroTitle={'Carb'} macroCount={this.props.macros.carbCount} />
+            <Counter
+              macroTitle={'Carb'}
+              macroCount={this.props.macros.carbCount}
+            />
             {this.props.macros.carbCount <= 0 ? (
               <AddMacroForm
                 onMacroAdd={this.handleOnMacroAdd}
@@ -93,7 +95,10 @@ class MacroTracker extends Component {
       case 'fat':
         return (
           <div>
-            <Counter macroTitle={'Fat'} macroCount={this.props.macros.fatCount} />
+            <Counter
+              macroTitle={'Fat'}
+              macroCount={this.props.macros.fatCount}
+            />
             {this.props.macros.fatCount <= 0 ? (
               <AddMacroForm
                 onMacroAdd={this.handleOnMacroAdd}
@@ -113,11 +118,11 @@ class MacroTracker extends Component {
   };
 
   render() {
-    const { user: { displayName } } = this.props
+    const { user: { displayName } } = this.props;
     return (
       <div className="macroTrackerDiv">
         <div>
-          <p>Hi, { displayName }!</p>
+          <p>Hi, {displayName}!</p>
         </div>
         <div className="row">
           <div className="col s12 m4">
@@ -145,4 +150,6 @@ const mapStateToProps = ({ macros = {} }) => ({
   macros,
 });
 
-export default connect(mapStateToProps, { fetchMacros, fetchUser })(MacroTracker);
+export default connect(mapStateToProps, { fetchMacros, fetchUser })(
+  MacroTracker,
+);
