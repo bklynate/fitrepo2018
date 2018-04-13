@@ -19,10 +19,12 @@ require('./services/passport');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cookieSession({
-  maxAge: 30 * 24 * 60 * 60 * 1000,
-  keys: [keys.cookieKey],
-}));
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -44,6 +46,6 @@ if (NODE_ENV === 'production') {
   });
 }
 
-app.listen((PORT || 5000), () => {
+app.listen(PORT || 5000, () => {
   console.log('They came for us....out of the darkness..'); // eslint-disable-line
 });

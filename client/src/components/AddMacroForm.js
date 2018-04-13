@@ -6,7 +6,7 @@ class AddMacroForm extends Component {
   onFormSubmit = e => {
     e.preventDefault();
 
-    const macrograms = this.refs.macrograms.value;
+    const { value: macrograms } = this.refs.macrograms;
     const { macroType } = this.props;
     if (macrograms.match(/^[0-9]*$/) && macrograms !== '') {
       this.refs.macrograms.value = '';

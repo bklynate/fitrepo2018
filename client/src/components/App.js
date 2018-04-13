@@ -18,11 +18,9 @@ class App extends Component {
 
   async componentDidMount() {
     const user = await this.props.fetchUser();
-    console.log(user, 'this is the USER');
     return this.setState(() => ({
-      user
+      user,
     }));
-
   }
 
   render() {

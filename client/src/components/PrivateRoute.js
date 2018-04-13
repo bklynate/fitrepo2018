@@ -6,7 +6,8 @@ export const PrivateRoute = ({ auth, component: Component, user, ...rest }) => (
   <div>
     <Route
       {...rest}
-      component={props => (auth ? <Component {...props} user={user}/> : <Redirect to="/" />)}
+      component={props =>
+        auth ? <Component {...props} user={user} /> : <Redirect to="/" />}
     />
   </div>
 );

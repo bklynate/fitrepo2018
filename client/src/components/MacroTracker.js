@@ -12,9 +12,17 @@ class MacroTracker extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.macros.carbCount === this.props.macros.carbCount) return;
-    if (prevProps.macros.fatCount === this.props.macros.fatCount) return;
-    if (prevProps.macros.proteinCount === this.props.macros.proteinCount) return;
+    const {
+      carbCount: prevCarbCount,
+      fatCount: prevFatCount,
+      proteinCount: prevProteinCount,
+    } = prevProps.macros;
+
+    const { carbCount, fatCount, proteinCount } = this.props.macros;
+
+    if (prevCarbCount === carbCount) return;
+    if (prevFatCount === fatCount) return;
+    if (prevProteinCount === proteinCount) return;
     this.props.fetchMacros();
   }
 
@@ -32,18 +40,19 @@ class MacroTracker extends Component {
   };
 
   handleOnMacroDeduct = (amount, macroType) => {
+    const { carbCount, fatCount, proteinCount } = this.props.macros;
     switch (macroType) {
       case 'protein':
         return this.setState(() => ({
-          proteinCount: this.props.macros.proteinCount - amount,
+          proteinCount: proteinCount - amount,
         }));
       case 'carb':
         return this.setState(() => ({
-          carbCount: this.props.macros.carbCount - amount,
+          carbCount: carbCount - amount,
         }));
       case 'fat':
         return this.setState(() => ({
-          fatCount: this.props.macros.fatCount - amount,
+          fatCount: fatCount - amount,
         }));
       default:
         return 0;
