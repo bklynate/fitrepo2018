@@ -4,5 +4,5 @@ import macroReducer from './macroReducer';
 
 export default combineReducers({
   auth: authReducer,
-  macros: macroReducer
+  macros: macroReducer,
 });

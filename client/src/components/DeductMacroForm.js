@@ -10,7 +10,7 @@ class DeductMacroForm extends Component {
     const { macroType } = this.props;
     if (macrograms.match(/^[0-9]*$/) && macrograms !== '') {
       this.refs.macrograms.value = '';
-      const macroAmount = {macroAmount: parseInt(macrograms, 10)};
+      const macroAmount = { macroAmount: parseInt(macrograms, 10) };
       this.props.deductMacro({ macroAmount, macroType });
     }
   };

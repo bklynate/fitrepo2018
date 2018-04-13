@@ -8,13 +8,13 @@ export const fetchUser = () => async dispatch => {
 };
 
 export const deductMacro = ({ macroAmount, macroType }) => async dispatch => {
-  const macro = { ...macroAmount,  macroType };
+  const macro = { ...macroAmount, macroType };
   const response = await axios.post('/api/deduct_macro', macro);
   dispatch({ type: DEDUCT_MACRO, payload: response.data });
 };
 
 export const addMacro = ({ macroAmount, macroType }) => async dispatch => {
-  const macro = { ...macroAmount,  macroType };
+  const macro = { ...macroAmount, macroType };
   const response = await axios.post('/api/add_macro', macro);
   dispatch({ type: ADD_MACRO, payload: response.data });
 };
